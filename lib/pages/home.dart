@@ -4,7 +4,10 @@ import 'package:web_app/pages/container/container_one.dart';
 import 'package:web_app/widgets/navbar.dart';
 
 import '../util/constants.dart';
+import 'container/container_five.dart';
+import 'container/container_four.dart';
 import 'container/container_two.dart';
+import 'container_three.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -22,8 +25,15 @@ class _HomeState extends State<Home> {
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
-        child: Column(
-          children: [NavBar(), ContainerOne(), ContainerTwo()],
+        child: const Column(
+          children: [
+            NavBar(),
+            ContainerOne(),
+            ContainerTwo(),
+            ContainerThree(),
+            ContainerFour(),
+            ContainerFive()
+          ],
         ),
       ),
     ));

@@ -27,89 +27,41 @@ class _State extends State<ContainerTwo> {
 
 Widget buildMobile(BuildContext context) {
   return Container(
-    // margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
+    decoration: BoxDecoration(color: AppColors.primary),
+    width: double.infinity,
     child: Column(
-      // changed row to column
       children: [
         Container(
-          height: w! / 1.5,
-          width: w! / 1.5,
-          decoration: const BoxDecoration(
+          padding:
+              const EdgeInsets.only(top: 20, bottom: 0, right: 20, left: 20),
+          child: Container(
+            height: 200,
+            width: double.infinity,
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(
-                    ilustration1,
-                  ),
-                  fit: BoxFit.contain)),
+                  image: AssetImage(dashboardImage), fit: BoxFit.fill),
+            ),
+          ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
-
-        //=================
-
         Container(
+          color: Colors.white,
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text("Track your\nExpenses to\nSave Money",
-                    style: TextStyle(
-                      fontSize: w! / 15,
-                      fontWeight: FontWeight.bold,
-                      height: 1.2,
-                    )),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  "Helps you to organize your \nincome and expenses",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0xFFBDBDBD), fontSize: 13),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-
-                //! remove row  and expanded, reduce font size and allign center, reduce margin  for mobile views----------------------------------------------------
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      constraints:
-                          const BoxConstraints.tightFor(width: 160, height: 45),
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-                        //..................
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5))),
-                          backgroundColor:
-                              MaterialStateProperty.all(AppColors.primary),
-                        )
-                        //.......
-                        ,
-                        icon: const Icon(Icons.arrow_downward_outlined),
-                        label: Text(
-                          "Try free demo",
-                          style: TextStyle(
-                            color: AppColors.whiteText,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                //....................
-                const SizedBox(
-                  width: 10,
-                  height: 10,
-                ),
-                Text(
-                  '  — Web, iOs and Android',
-                  style: TextStyle(color: AppColors.greyText, fontSize: 13),
-                )
-              ]),
-        ),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildCompanyLogo(logo: facebookLogo),
+              height10,
+              buildCompanyLogo(logo: googleLogo),
+              height10,
+              buildCompanyLogo(logo: cocaColaLogo),
+              height10,
+              buildCompanyLogo(logo: linkdinLogo),
+              height10,
+              buildCompanyLogo(logo: samsungLogo)
+            ],
+          ),
+        )
       ],
     ),
   );
