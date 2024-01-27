@@ -7,25 +7,25 @@ import 'package:web_app/util/constants.dart';
 
 import '../../util/image.dart';
 
-class ContainerOne extends StatefulWidget {
-  const ContainerOne({super.key});
+class ContainerTwo extends StatefulWidget {
+  const ContainerTwo({super.key});
 
   @override
-  State<ContainerOne> createState() => _ContainerOneState();
+  State<ContainerTwo> createState() => _State();
 }
 
-class _ContainerOneState extends State<ContainerOne> {
+class _State extends State<ContainerTwo> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      desktop: buildDesktopContainerOne,
-      mobile: buildMobileContainerOne,
+      desktop: buildDesktop,
+      mobile: buildMobile,
     );
   }
 }
 //=========================MOBILECONTAINE1=========================================
 
-Widget buildMobileContainerOne(BuildContext context) {
+Widget buildMobile(BuildContext context) {
   return Container(
     // margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
     child: Column(
@@ -117,84 +117,84 @@ Widget buildMobileContainerOne(BuildContext context) {
 
 //============================DESKTOPCONAINER1=======================================
 
-Widget buildDesktopContainerOne(BuildContext context) {
+Widget buildDesktop(BuildContext context) {
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
-    child: Row(
+    child: Column(
       children: [
-        Expanded(
-          child: Container(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Track your\nExpenses to\nSave Money",
-                      style: TextStyle(
-                        fontSize: w! / 20,
-                        fontWeight: FontWeight.bold,
-                        height: 1.2,
+        Container(
+          height: 900,
+          width: double.infinity,
+          color: AppColors.primary,
+          child: Column(
+            children: [
+              Expanded(
+                  child: Stack(
+                children: [
+                  Positioned(
+                      top: -20,
+                      right: -20,
+                      child: Container(
+                        height: 320,
+                        width: 320,
+                        decoration: const BoxDecoration(
+                            image:
+                                DecorationImage(image: AssetImage(vectroOne))),
                       )),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    "Helps you to organize your income and expenses",
-                    style: TextStyle(color: Color(0xFFBDBDBD), fontSize: 18),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        constraints: const BoxConstraints.tightFor(
-                            width: 160, height: 45),
-                        child: ElevatedButton.icon(
-                          onPressed: () {},
-                          //..................
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5))),
-                            backgroundColor:
-                                MaterialStateProperty.all(AppColors.primary),
-                          )
-                          //.......
-                          ,
-                          icon: const Icon(Icons.arrow_downward_outlined),
-                          label: Text(
-                            "Try free demo",
-                            style: TextStyle(
-                              color: AppColors.whiteText,
-                            ),
-                          ),
-                        ),
-                      ),
-                      //....................
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '  — Web, iOs and Android',
-                        style:
-                            TextStyle(color: AppColors.greyText, fontSize: 18),
-                      )
-                    ],
-                  )
-                ]),
+                  Positioned(
+                      bottom: -20,
+                      left: -20,
+                      child: Container(
+                        height: 320,
+                        width: 320,
+                        decoration: const BoxDecoration(
+                            image:
+                                DecorationImage(image: AssetImage(vectroTwo))),
+                      )),
+                  Positioned(
+                      left: 43,
+                      right: 43,
+                      bottom: 0,
+                      child: Container(
+                        width: double.infinity,
+                        height: 712,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(dashboardImage))),
+                      )),
+                ],
+              )),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 40),
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    buildCompanyLogo(logo: facebookLogo),
+                    buildCompanyLogo(logo: googleLogo),
+                    buildCompanyLogo(logo: cocaColaLogo),
+                    buildCompanyLogo(logo: linkdinLogo),
+                    buildCompanyLogo(logo: samsungLogo)
+                  ],
+                ),
+              )
+            ],
           ),
         ),
-        Expanded(
-            child: Container(
-          height: 530,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                    ilustration1,
-                  ),
-                  fit: BoxFit.contain)),
-        ))
       ],
     ),
   );
 }
+
 //======================DESKTOPCONAINER1 END==========================================
+
+//========================COMPANY LOGO WIDGET=========================
+
+Widget buildCompanyLogo({required String logo}) {
+  return Container(
+    height: 36,
+    width: 159,
+    decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(logo), fit: BoxFit.contain)),
+  );
+}
+//================================================================
