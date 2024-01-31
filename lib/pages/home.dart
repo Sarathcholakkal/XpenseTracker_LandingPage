@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:web_app/pages/container/container_one.dart';
+// import 'package:web_app/pages/container/container_one.dart';
 
 import 'package:web_app/widgets/navbar.dart';
 
 import '../util/constants.dart';
 import 'container/container_five.dart';
 import 'container/container_four.dart';
-import 'container/container_two.dart';
+import 'container/container_one.dart';
+import 'container_two.dart';
 import 'container_three.dart';
 
 class Home extends StatefulWidget {
