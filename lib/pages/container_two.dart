@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:web_app/util/app_colors.dart';
 import 'package:web_app/util/constants.dart';
 
-import '../../util/image.dart';
+import '../util/image.dart';
 
 class ContainerTwo extends StatefulWidget {
   const ContainerTwo({super.key});
